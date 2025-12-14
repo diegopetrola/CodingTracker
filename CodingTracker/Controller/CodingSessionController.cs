@@ -193,7 +193,6 @@ public class CodingSessionController : ICodingSessionController
     public async Task LiveSession()
     {
         var stopwatch = Stopwatch.StartNew();
-        var lastUpdated = DateTime.MinValue;
         var startTime = DateTime.Now;
 
         var contentPanel = new Table().Centered();
