@@ -5,7 +5,7 @@ using System.Data;
 
 namespace CodingTracker.Data;
 
-public class CodingSessionData
+public class CodingSessionData : ICodingSessionData
 {
     private readonly IConfiguration _config;
     private string ConnectionString { get; set; }
@@ -142,7 +142,7 @@ public class CodingSessionData
             FROM CodingSession
             """;
 
-        var sql = sqlHeader+@"
+        var sql = sqlHeader + @"
             WHERE 
                 StartTime >= @startTime AND EndTime <= @endTime
             GROUP BY 

@@ -4,11 +4,11 @@ using static CodingTracker.InputValidator;
 
 namespace CodingTracker.Services;
 
-public class CodingSessionService
+public class CodingSessionService : ICodingSessionService
 {
-    CodingSessionData data;
+    ICodingSessionData data;
 
-    public CodingSessionService(CodingSessionData data)
+    public CodingSessionService(ICodingSessionData data)
     {
         this.data = data;
     }

@@ -7,12 +7,12 @@ using static CodingTracker.InputValidator;
 
 namespace CodingTracker.Controller;
 
-public class CodingSessionController
+public class CodingSessionController : ICodingSessionController
 {
-    private readonly CodingSessionService service;
-    private readonly JokeService jService = new JokeService();
+    private readonly ICodingSessionService service;
+    private readonly JokeService jService = new ();
 
-    public CodingSessionController(CodingSessionService service)
+    public CodingSessionController(ICodingSessionService service)
     {
         this.service = service;
     }
@@ -152,7 +152,7 @@ public class CodingSessionController
         DateTime startTime = PromptDate("Type the [bold]starting time[/]: ");
         DateTime endTime = PromptDate("Type the [bold]ending time[/]: ");
 
-        var reports = await service.GroupByDate(startTime, endTime, 
+        var reports = await service.GroupByDate(startTime, endTime,
             Enum.Parse<DateGrouping>(dateGrouping),
             Enum.Parse<ReportGrouping>(reportGrouping));
 
