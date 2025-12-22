@@ -109,7 +109,7 @@ public class CodingSessionData : ICodingSessionData
         using var conn = CreateConnection();
         var sql = @"
             UPDATE CodingSession
-            SET StartDate=StartDate, EndDate=@EndDate
+            SET StartTime=StartDate, EndTime=@EndDate
             WHERE ID=@ID";
         await conn.ExecuteAsync(sql, session);
     }
